@@ -1,43 +1,57 @@
-import random
+import random # importing the random library
 
-def player_input():
-    print("Welcome To the Game of Rock Paper Scissors!")
-    options = ["rock", "paper", "scissors"]
-    player_choice = input("Please Choose one of the following : Rock, Paper, Scissors!").capitalize()
-    computer_choice = random.choice(options).capitalize()
+# create a function to fetch user info along with computer data and store them in a dict
+#
+
+def data():
+    options = [
+        "Rock",
+        "Paper",
+        "Scissors"
+
+    ]
+
+    player_input = input("Choose: rock, paper or scissors?".title()).capitalize()
+    computer_input = random.choice(options).capitalize()
+
     choices = {
-        "player": player_choice, "computer": computer_choice
+        "player": player_input,
+        "computer": computer_input,
     }
 
     return choices
 
-def check_game(player, computer):
+
+def compute(player, computer):
+    # Declare player and computer choice
     print(f"You Chose {player} and computer chose {computer}")
     if player == computer:
-        return "It is a Tie"
+        return "It is a tie".title()
     elif player == "Rock":
         if computer == "Scissors":
-            return "Rock Beats Scissors, You Win!"
-        else:
-            return "Paper Beats Rock, You Lose!"
+            return "Rock beats scissors, You win!".title()
+        else: 
+            return "Paper beats rock, You lose!".title()
     elif player == "Paper":
         if computer == "Rock":
-            return "Paper Beats Rock, You Win!"
-        else:
-            return "Scissors Beats Paper, You Lose!"
+            return "Paper beats rock, you win!".title()
+        else: 
+            return "Scissors beats paper, you lose!".title()
     elif player == "Scissors":
         if computer == "Paper":
-            return "Scissors Beats Paper, You Win!"
+            return "Scissors beats paper, you win!".title()
         else: 
-            return "Rock beats Scissors, You Lose!"
-    else:
-        return "Please Choose One of The Correct Option: Rock, Paper and Scissors"
+            return "Rock beats scissors, you lose!".title()
+    else: 
+        return "Please choose one of the following: Rock paper or scissors".title()
 
-fetch_input = player_input()
 
-initiate_game = check_game(fetch_input.get("player"), fetch_input.get("computer"))
+# fetch the choices dict from the function and set it as the new params of compute function.
 
-print(initiate_game)
+info = data()
 
-print(input("Click Enter to Dismiss"))
+initiate = compute(info.get("player"), info.get("computer"))
+
+print(initiate)
+print(input("Click enter to terminate program").title()) # Keeps the program running until user input.
 
