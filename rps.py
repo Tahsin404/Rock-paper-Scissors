@@ -51,12 +51,11 @@ while True:
     reinitialize = input("Would You like to play again?(Y/n)").capitalize()
     print(reinitialize)
     while reinitialize not in ["Y", "N"]:
-        print(f"Please Type Y or N, {reinitialize}")
-        reinitialize = input("Would you like to play again?(Y/N)")
+        print(f"Please Type Y or N. You Typed {reinitialize}")
+        reinitialize = input("Would you like to play again?(Y/N)").capitalize()
     if reinitialize == "Y":
         continue
     elif reinitialize == "N":
         print("Thank you For playing")
         break
-    else:
-        continue
+    continue
